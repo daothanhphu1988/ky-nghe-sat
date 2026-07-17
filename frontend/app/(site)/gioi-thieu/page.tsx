@@ -108,10 +108,10 @@ export default function AboutPage() {
           </div>
           <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4">
             {[
-              { name: "Anh Tùng", src: "https://images.pexels.com/photos/32845660/pexels-photo-32845660.jpeg?auto=compress&cs=tinysrgb&w=300" },
-              { name: "Anh Hải", src: "https://images.pexels.com/photos/19544217/pexels-photo-19544217.jpeg?auto=compress&cs=tinysrgb&w=300" },
-              { name: "Anh Long", src: "https://images.pexels.com/photos/4486212/pexels-photo-4486212.jpeg?auto=compress&cs=tinysrgb&w=300" },
-              { name: "Anh Đức", src: "https://images.pexels.com/photos/16984315/pexels-photo-16984315.jpeg?auto=compress&cs=tinysrgb&w=300" },
+              { name: "Anh Tùng", src: "https://images.pexels.com/photos/6711674/pexels-photo-6711674.jpeg?auto=compress&cs=tinysrgb&w=300" },
+              { name: "Anh Hải", src: "https://images.pexels.com/photos/31295161/pexels-photo-31295161.jpeg?auto=compress&cs=tinysrgb&w=300" },
+              { name: "Anh Long", src: "https://images.pexels.com/photos/37809555/pexels-photo-37809555.jpeg?auto=compress&cs=tinysrgb&w=300" },
+              { name: "Anh Đức", src: "https://images.pexels.com/photos/37364516/pexels-photo-37364516.jpeg?auto=compress&cs=tinysrgb&w=300" },
             ].map(({ name, src }) => (
               <div key={name} className="text-center">
                 <div className="relative mx-auto aspect-square w-full overflow-hidden rounded-2xl">
