@@ -15,7 +15,7 @@ export default async function ContactPage() {
   const {
     hotline = "0984 999 087",
     email = "lienhe@kynghesat.vn",
-    address = "Thọ Tân, Xuân Thọ, Xuân Lộc, TP. Đồng Nai",
+    address = "Số 1178 Thọ Tân, Xuân Thọ, Xuân Lộc, TP. Đồng Nai",
     working_hours = "7:30 - 17:30, Thứ 2 - Thứ 7",
     map_embed_url,
   } = settings;

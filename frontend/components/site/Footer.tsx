@@ -24,7 +24,7 @@ export function Footer({ settings = {} }: { settings?: SiteSettings }) {
   const {
     hotline = "0984 999 087",
     email = "lienhe@kynghesat.vn",
-    address = "Thọ Tân, Xuân Thọ, Xuân Lộc, TP. Đồng Nai",
+    address = "Số 1178 Thọ Tân, Xuân Thọ, Xuân Lộc, TP. Đồng Nai",
     facebook_url = "https://www.facebook.com/phu.thanh.5817",
   } = settings;
 

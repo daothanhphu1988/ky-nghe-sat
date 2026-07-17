@@ -57,7 +57,7 @@ const organizationJsonLd = {
   telephone: "+84984999087",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Thọ Tân, Xã Xuân Thọ",
+    streetAddress: "Số 1178 Thọ Tân, Xã Xuân Thọ",
     addressLocality: "Xuân Lộc",
     addressRegion: "Đồng Nai",
     addressCountry: "VN",
