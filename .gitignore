@@ -1,0 +1,21 @@
+# Frontend (Next.js)
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.env*.local
+
+# Backend (Spring Boot / Maven)
+backend/target/
+backend/uploads/
+!backend/uploads/.gitkeep
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+
+# Env
+.env
