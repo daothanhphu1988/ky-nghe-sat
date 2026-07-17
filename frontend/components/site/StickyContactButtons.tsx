@@ -1,7 +1,7 @@
 import { Phone } from "lucide-react";
 
 export function StickyContactButtons({
-  hotline = "0909123456",
+  hotline = "0984999087",
 }: {
   hotline?: string;
   zalo?: string;

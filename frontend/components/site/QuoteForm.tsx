@@ -55,7 +55,7 @@ export function QuoteForm({
       setSubmitted(true);
       reset();
     } catch {
-      setError("Có lỗi xảy ra, vui lòng thử lại hoặc gọi hotline 0909 123 456.");
+      setError("Có lỗi xảy ra, vui lòng thử lại hoặc gọi hotline 0984 999 087.");
     }
   };
 

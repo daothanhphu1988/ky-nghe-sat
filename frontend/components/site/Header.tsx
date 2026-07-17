@@ -17,7 +17,7 @@ const NAV_LINKS = [
   { href: "/lien-he", label: "Liên hệ" },
 ];
 
-export function Header({ hotline = "0909 123 456" }: { hotline?: string }) {
+export function Header({ hotline = "0984 999 087" }: { hotline?: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 

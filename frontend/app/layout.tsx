@@ -54,12 +54,12 @@ const organizationJsonLd = {
   name: "Kỹ Nghệ Sắt",
   description: SITE_DESCRIPTION,
   url: SITE_URL,
-  telephone: "+84909123456",
+  telephone: "+84984999087",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "123 Quốc lộ 1A",
-    addressLocality: "Quận Bình Tân",
-    addressRegion: "TP. Hồ Chí Minh",
+    streetAddress: "Thọ Tân, Xã Xuân Thọ",
+    addressLocality: "Xuân Lộc",
+    addressRegion: "Đồng Nai",
     addressCountry: "VN",
   },
 };

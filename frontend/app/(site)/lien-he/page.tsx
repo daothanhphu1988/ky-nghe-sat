@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 export default async function ContactPage() {
   const settings = await getSettings().catch((): SiteSettings => ({}));
   const {
-    hotline = "0909 123 456",
+    hotline = "0984 999 087",
     email = "lienhe@kynghesat.vn",
-    address = "123 Quốc lộ 1A, Quận Bình Tân, TP. Hồ Chí Minh",
+    address = "Thọ Tân, Xuân Thọ, Xuân Lộc, TP. Đồng Nai",
     working_hours = "7:30 - 17:30, Thứ 2 - Thứ 7",
     map_embed_url,
   } = settings;

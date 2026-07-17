@@ -22,9 +22,9 @@ const SERVICE_LINKS: Array<{ slug: string; category: keyof typeof SERVICE_CATEGO
 
 export function Footer({ settings = {} }: { settings?: SiteSettings }) {
   const {
-    hotline = "0909 123 456",
+    hotline = "0984 999 087",
     email = "lienhe@kynghesat.vn",
-    address = "123 Quốc lộ 1A, Quận Bình Tân, TP. Hồ Chí Minh",
+    address = "Thọ Tân, Xuân Thọ, Xuân Lộc, TP. Đồng Nai",
     facebook_url = "https://www.facebook.com/phu.thanh.5817",
   } = settings;
 
