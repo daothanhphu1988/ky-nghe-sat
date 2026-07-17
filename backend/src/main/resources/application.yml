@@ -2,9 +2,9 @@ spring:
   application:
     name: backend
   datasource:
-    url: jdbc:postgresql://localhost:5433/kynghesat
-    username: kynghesat
-    password: kynghesat
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5433/kynghesat}
+    username: ${SPRING_DATASOURCE_USERNAME:kynghesat}
+    password: ${SPRING_DATASOURCE_PASSWORD:kynghesat}
   jpa:
     hibernate:
       ddl-auto: validate
@@ -21,7 +21,7 @@ spring:
       max-request-size: 10MB
 
 server:
-  port: 8080
+  port: ${PORT:8080}
 
 app:
   jwt:
