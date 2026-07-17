@@ -5,6 +5,15 @@ spring:
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5433/kynghesat}
     username: ${SPRING_DATASOURCE_USERNAME:kynghesat}
     password: ${SPRING_DATASOURCE_PASSWORD:kynghesat}
+    hikari:
+      # Keep a small pool of connections warm so requests don't pay a fresh
+      # TCP+TLS+auth handshake on every call — this matters a lot when the
+      # database is a network hop away (e.g. a managed Postgres in another region).
+      minimum-idle: 3
+      maximum-pool-size: 10
+      keepalive-time: 30000
+      connection-timeout: 10000
+      validation-timeout: 5000
   jpa:
     hibernate:
       ddl-auto: validate

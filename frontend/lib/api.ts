@@ -25,9 +25,15 @@ export class ApiError extends Error {
 
 async function apiFetch<T>(
   path: string,
-  options: RequestInit & { token?: string } = {},
+  options: RequestInit & { token?: string; revalidate?: number } = {},
 ): Promise<T> {
-  const { token, headers, ...rest } = options;
+  const { token, headers, revalidate, ...rest } = options;
+
+  // Public GETs opt into ISR-style caching via `revalidate` so repeat visits
+  // don't re-pay the network round trip to the database on every request.
+  // Anything else (admin calls, mutations) stays uncached for freshness.
+  const cacheOptions: RequestInit =
+    revalidate !== undefined ? { next: { revalidate } } : { cache: rest.cache ?? "no-store" };
 
   const res = await fetch(`${API_BASE_URL}${path}`, {
     ...rest,
@@ -36,7 +42,7 @@ async function apiFetch<T>(
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...headers,
     },
-    cache: rest.cache ?? "no-store",
+    ...cacheOptions,
   });
 
   if (!res.ok) {
@@ -71,19 +77,19 @@ export function getProjects(params?: {
   if (params?.page !== undefined) search.set("page", String(params.page));
   if (params?.size !== undefined) search.set("size", String(params.size));
   const qs = search.toString();
-  return apiFetch<PageResponse<Project>>(`/api/projects${qs ? `?${qs}` : ""}`);
+  return apiFetch<PageResponse<Project>>(`/api/projects${qs ? `?${qs}` : ""}`, { revalidate: 60 });
 }
 
 export function getProjectBySlug(slug: string) {
-  return apiFetch<Project>(`/api/projects/${slug}`);
+  return apiFetch<Project>(`/api/projects/${slug}`, { revalidate: 60 });
 }
 
 export function getServices() {
-  return apiFetch<ServiceItem[]>("/api/services");
+  return apiFetch<ServiceItem[]>("/api/services", { revalidate: 60 });
 }
 
 export function getServiceBySlug(slug: string) {
-  return apiFetch<ServiceItem>(`/api/services/${slug}`);
+  return apiFetch<ServiceItem>(`/api/services/${slug}`, { revalidate: 60 });
 }
 
 export function getNews(params?: { page?: number; size?: number }) {
@@ -91,23 +97,23 @@ export function getNews(params?: { page?: number; size?: number }) {
   if (params?.page !== undefined) search.set("page", String(params.page));
   if (params?.size !== undefined) search.set("size", String(params.size));
   const qs = search.toString();
-  return apiFetch<PageResponse<NewsArticle>>(`/api/news${qs ? `?${qs}` : ""}`);
+  return apiFetch<PageResponse<NewsArticle>>(`/api/news${qs ? `?${qs}` : ""}`, { revalidate: 60 });
 }
 
 export function getNewsBySlug(slug: string) {
-  return apiFetch<NewsArticle>(`/api/news/${slug}`);
+  return apiFetch<NewsArticle>(`/api/news/${slug}`, { revalidate: 60 });
 }
 
 export function getReviews() {
-  return apiFetch<Review[]>("/api/reviews");
+  return apiFetch<Review[]>("/api/reviews", { revalidate: 60 });
 }
 
 export function getBanners(position: BannerPosition) {
-  return apiFetch<Banner[]>(`/api/banners?position=${position}`);
+  return apiFetch<Banner[]>(`/api/banners?position=${position}`, { revalidate: 60 });
 }
 
 export function getSettings() {
-  return apiFetch<SiteSettings>("/api/settings");
+  return apiFetch<SiteSettings>("/api/settings", { revalidate: 300 });
 }
 
 export function submitQuoteRequest(payload: QuoteRequestPayload) {
